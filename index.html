@@ -26,7 +26,7 @@
         <div class="gallery-container"> </div>
         <div class="editor-container hidden">
             <div class="canvas-container">
-                <canvas id="my-canvas" height="500" width="500" class="my-canvas"></canvas>
+                <canvas id="my-canvas" height="500" width="500" class="my-canvas" onclick="canvasClicked(event)"></canvas>
                 <div class="edit-panel ">
                     <input type="text" placeholder="Write here" name="txt-line" class="txt-inp" oninput="onLineType(this.value)">
                     <div class="first-panel">
@@ -45,7 +45,7 @@
                             <option value="Ariel">Ariel</option>
                             <option value="Courier New">Courier New</option>
                         </select>
-                        <button class="edit-panel-btn btn-7"><input type="color" class="hidden fill-color" onclick="onChangeClass(this)" ><img src="img/ICONS/paint-board-and-brush.png"></button>
+                        <button class="edit-panel-btn btn-7" onclick="onChangeClass(this)"><input type="color" class="hidden fill-color"  ><img src="img/ICONS/paint-board-and-brush.png"></button>
                         <button class="edit-panel-btn save-btn btn-8"><input type="color" class="hidden stroke-color" onclick="onChangeClass(this)">S</button>
                     </div>
                     <div>
