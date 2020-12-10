@@ -10,11 +10,56 @@
 </head>
 
 
-<body onload="init()">
-    
+<body onload="onInit()">
 
-    
-    <script src="js/main.js"></script>
+    <header>
+        <nav class="nav-bar flex space-between">
+            <span class="logo">Logo</span>
+            <ul class="nav-btn flex">
+                <li class="nav-item flex" onclick="onGalleryClick()">Gallery</li>
+                <li class="nav-item flex" onclick="onEditorClick()">Editor</li>
+                <li class="nav-item flex">About</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="gallery-container"> </div>
+        <div class="editor-container hidden">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="500" width="500" class="my-canvas"></canvas>
+                <div class="edit-panel ">
+                    <input type="text" placeholder="Write here" name="txt-line" class="txt-inp" oninput="onLineType(this.value)">
+                    <div class="first-panel">
+                        <button class="edit-panel-btn move-btn" onclick="onChangeSelectedLine()"><img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png"> </button>
+                        <button class="edit-panel-btn add-btn" onclick="onAddLine()"><img src="img/ICONS/add.png"> </button>
+                        <button class="edit-panel-btn trash-btn" onclick="onDeleteLine()"><img src="img/ICONS/trash.png"> </button>
+                    </div>
+                    <div class="second-panel">
+                        <button class="edit-panel-btn btn-1" value="increase-font" onclick="onChangeFontSize(this.value)"> <img src="img/ICONS/increase-font-icon.png"> </button>
+                        <button class="edit-panel-btn btn-2" value="decrease-font" onclick="onChangeFontSize(this.value)"> <img src="img/ICONS/decrease-font-icon.png"> </button>
+                        <button class="edit-panel-btn btn-3" onclick="onSetTextAlign('left')"><img src="img/ICONS/align-to-left.png">  </button>
+                        <button class="edit-panel-btn btn-4" onclick="onSetTextAlign('center')"> <img src="img/ICONS/center-text-alignment.png"> </button>
+                        <button class="edit-panel-btn btn-5" onclick="onSetTextAlign('right')"> <img src="img/ICONS/align-to-right.png"> </button>
+                        <select class="fonts-pick btn-6" onchange="onSetFont(this.value)">
+                            <option value="impact">Impact</option>
+                            <option value="Ariel">Ariel</option>
+                            <option value="Courier New">Courier New</option>
+                        </select>
+                        <button class="edit-panel-btn btn-7"><input type="color" class="hidden fill-color" onclick="onChangeClass(this)" ><img src="img/ICONS/paint-board-and-brush.png"></button>
+                        <button class="edit-panel-btn save-btn btn-8"><input type="color" class="hidden stroke-color" onclick="onChangeClass(this)">S</button>
+                    </div>
+                    <div>
+                        <button class="share-btn" type="submit"> Share</button>
+                        <button class="download-btn"><a href="#" onclick="downloadCanvas(this)" download=" ">Download</a></button>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </main>
+    <script src="js/storageService.js"></script>
+    <script src="js/memeService.js"></script>
+    <script src="js/memeController.js"></script>
 </body>
 
 </html>
