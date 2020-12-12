@@ -14,7 +14,7 @@
 
     <header>
         <nav class="nav-bar flex space-between">
-            <span class="logo">Logo</span>
+            <span class="logo">MEMEGEN</span>
             <ul class="nav-btn flex">
                 <li class="nav-item flex" onclick="onGalleryClick()">Gallery</li>
                 <li class="nav-item flex" onclick="onEditorClick()">Editor</li>
@@ -26,13 +26,15 @@
         <div class="gallery-container"> </div>
         <div class="editor-container hidden">
             <div class="canvas-container">
-                <canvas id="my-canvas" height="500" width="500" class="my-canvas" onclick="canvasClicked(event)"></canvas>
+                <canvas id="my-canvas" height="500" width="500" class="my-canvas" onclick="onCanvasClicked(event)"></canvas>
                 <div class="edit-panel ">
-                    <input type="text" placeholder="Write here" name="txt-line" class="txt-inp" oninput="onLineType(this.value)">
+                    <input type="text" placeholder="Write here" name="txt-line" class="txt-inp" oninput="onLineType(value, event, this)">
                     <div class="first-panel">
-                        <button class="edit-panel-btn move-btn" onclick="onChangeSelectedLine()"><img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png"> </button>
-                        <button class="edit-panel-btn add-btn" onclick="onAddLine()"><img src="img/ICONS/add.png"> </button>
-                        <button class="edit-panel-btn trash-btn" onclick="onDeleteLine()"><img src="img/ICONS/trash.png"> </button>
+                        <button class="edit-panel-btn btn-up" onclick="onMove('up')"><img src="img/ICONS/upArr.png"> </button>
+                        <button class="edit-panel-btn btn-down" onclick="onMove('down')"><img src="img/ICONS/downArr.png"> </button>
+                        <button class="edit-panel-btn move-btn" onclick="onChangeSelectedLine()"><img src="img/ICONS/upDownW.png"> </button>
+                        <button class="edit-panel-btn add-btn" onclick="onAddLine()"><img src="img/ICONS/plusW.png"> </button>
+                        <button class="edit-panel-btn trash-btn" onclick="onDeleteLine()"><img src="img/ICONS/Wtrash.png"> </button>
                     </div>
                     <div class="second-panel">
                         <button class="edit-panel-btn btn-1" value="increase-font" onclick="onChangeFontSize(this.value)"> <img src="img/ICONS/increase-font-icon.png"> </button>
@@ -40,16 +42,22 @@
                         <button class="edit-panel-btn btn-3" onclick="onSetTextAlign('left')"><img src="img/ICONS/align-to-left.png">  </button>
                         <button class="edit-panel-btn btn-4" onclick="onSetTextAlign('center')"> <img src="img/ICONS/center-text-alignment.png"> </button>
                         <button class="edit-panel-btn btn-5" onclick="onSetTextAlign('right')"> <img src="img/ICONS/align-to-right.png"> </button>
-                        <select class="fonts-pick btn-6" onchange="onSetFont(this.value)">
-                            <option value="impact">Impact</option>
-                            <option value="Ariel">Ariel</option>
+                        <select class="fonts-pick btn-6" name="font-change" onchange="onSetFont(value)">
+                            <option value="impact" selected>Impact</option>
+                            <option value="Arial">Arial</option>
                             <option value="Courier New">Courier New</option>
                         </select>
-                        <button class="edit-panel-btn btn-7" onclick="onChangeClass(this)"><input type="color" class="hidden fill-color"  ><img src="img/ICONS/paint-board-and-brush.png"></button>
-                        <button class="edit-panel-btn save-btn btn-8"><input type="color" class="hidden stroke-color" onclick="onChangeClass(this)">S</button>
+                        <button class="edit-panel-btn btn-7" onclick="onChangeClass(this)"><input type="color" name="color-text" onchange="colorFillChanged(this)" class="hidden fill-color" value="#0f0f0f"><img src="img/ICONS/paint-board-and-brush.png"></button>
+                        <button class="edit-panel-btn save-btn btn-8" onclick="onChangeClassStroke(this)"><input  name="color-stroke" onchange="colorStrokeChanged(this)" type="color" class="hidden stroke-color"  value="#ffffff">S</button>
                     </div>
-                    <div>
-                        <button class="share-btn" type="submit"> Share</button>
+      
+                    <div class="footer-btn">
+                        <form id="canvas-form" class="canvas-form"  enctype="multipart/form-data"  >
+                            <input id="img-canvas" type="hidden"/>
+                            
+                            <a class="share-btn" type="submit" title="Share on Facebook" target="_blank"  onclick="onShare(this)"> Share</a>
+                        </form>
+                       
                         <button class="download-btn"><a href="#" onclick="downloadCanvas(this)" download=" ">Download</a></button>
                     </div>
                 </div>
@@ -57,6 +65,7 @@
            
         </div>
     </main>
+
     <script src="js/storageService.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/memeController.js"></script>
