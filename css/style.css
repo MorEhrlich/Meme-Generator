@@ -76,20 +76,19 @@ body {
 /*gallary*/
 
 .gallery-container {
-    padding: 20px 10px;
+    padding: 10px 10px;
     /*display: grid;
     grid-template-columns: 200px 200px 200px 200px 200px;
     grid-template-rows: 200px 200px 200px 200px 200px;
     grid-gap: 20px;*/
-    display:flex;
-    flex-wrap:wrap;
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     width: 95vw;
     margin-top: 15px;
     background-color: #383b42;
     justify-content: center;
-   
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     border-radius: 15px;
 }
 
@@ -101,7 +100,6 @@ body {
 
 .gallery-img {
     object-fit: cover;
-  
     width: 100%;
     cursor: pointer;
     border-radius: 15px;
@@ -281,12 +279,13 @@ canvas {
 }
 
 .canvas-form {
-    display:inline-block;
+    display: inline-block;
 }
+
 .share-btn {
     padding: 10px;
     display: inline-block;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     background-color: #1e7cd3;
     height: 51px;
     width: 215px;
@@ -302,7 +301,6 @@ canvas {
 
 .share-btn::before {
     content: url(../img/ICONS/Forme_7.png);
-   
     position: relative;
     top: 5px;
 }
@@ -331,14 +329,19 @@ canvas {
         flex-wrap: wrap;
         flex-direction: row;
         max-width: 300px;
+        margin-top: 5px;
+    }
+    .edit-panel {
+        max-width: 300px;
+        padding: 22px;
     }
     .edit-panel-btn {
-        width: 40px;
-        height: 35px;
+        width: 42px;
+        height: 42px;
     }
     .edit-panel-btn img {
-        width: 22px;
-        height: 22px;
+        width: 25px;
+        height: 25px;
     }
     .txt-input {
         width: auto;
@@ -349,6 +352,7 @@ canvas {
     }
     .second-panel {
         margin-bottom: 10px;
+        max-width: 300px;
     }
     .fonts-pick {
         height: 30px;
@@ -358,10 +362,13 @@ canvas {
         width: 100px;
     }
     .download-btn {
-        width: 250px;
+        width: 256px;
     }
     .share-btn {
-        width: 250px;
+        width: 256px;
+    }
+    .nav-btn {
+        line-height: 18px;
     }
     .nav-item {
         width: 25px;
@@ -371,17 +378,34 @@ canvas {
         color: white;
         background: transparent;
     }
+    .nav-bar {
+        max-width: 370px;
+        max-height: 60px;
+        margin: 0 auto;
+        position: relative;
+        top: 6px;
+    }
     .logo {
         font-size: 20px;
-        top: 16px;
+        top: 15px;
+        left: 20px;
     }
     canvas {
         width: 300px;
         height: 300px;
+        margin: 6px 0
     }
-
     .gallery-container {
         display: flex;
+        max-width: 356px;
+        margin-top: 12px;
+        margin-bottom: 10px;
+        border-radius: 25px;
+        justify-content: space-around;
     }
-
+    .gallery-img{
+        height: 140px;
+        width: 140px;
+        margin: 0px -23px;
+    }
 }
